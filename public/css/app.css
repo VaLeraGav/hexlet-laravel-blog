@@ -2304,11 +2304,6 @@ progress {
     opacity: 1
 }
 
-.form-control:-ms-input-placeholder {
-    color: #6c757d;
-    opacity: 1
-}
-
 .form-control::placeholder {
     color: #6c757d;
     opacity: 1
@@ -2336,10 +2331,6 @@ progress {
 }
 
 @media (prefers-reduced-motion:reduce) {
-    .form-control::-webkit-file-upload-button {
-        -webkit-transition: none;
-        transition: none
-    }
 
     .form-control::file-selector-button {
         transition: none
@@ -2798,20 +2789,11 @@ textarea.form-control-lg {
     color: transparent
 }
 
-.form-floating>.form-control:-ms-input-placeholder {
-    color: transparent
-}
-
 .form-floating>.form-control::placeholder {
     color: transparent
 }
 
 .form-floating>.form-control:not(:-moz-placeholder-shown) {
-    padding-bottom: .625rem;
-    padding-top: 1.625rem
-}
-
-.form-floating>.form-control:not(:-ms-input-placeholder) {
     padding-bottom: .625rem;
     padding-top: 1.625rem
 }
@@ -2833,11 +2815,6 @@ textarea.form-control-lg {
 }
 
 .form-floating>.form-control:not(:-moz-placeholder-shown)~label {
-    opacity: .65;
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem)
-}
-
-.form-floating>.form-control:not(:-ms-input-placeholder)~label {
     opacity: .65;
     transform: scale(.85) translateY(-.5rem) translateX(.15rem)
 }
@@ -3172,7 +3149,6 @@ textarea.form-control.is-invalid {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     vertical-align: middle
 }
@@ -5620,12 +5596,6 @@ fieldset:disabled .btn {
     color: #101214
 }
 
-@-webkit-keyframes progress-bar-stripes {
-    0% {
-        background-position-x: 1rem
-    }
-}
-
 @keyframes progress-bar-stripes {
     0% {
         background-position-x: 1rem
@@ -5667,13 +5637,11 @@ fieldset:disabled .btn {
 }
 
 .progress-bar-animated {
-    -webkit-animation: progress-bar-stripes 1s linear infinite;
     animation: progress-bar-stripes 1s linear infinite
 }
 
 @media (prefers-reduced-motion:reduce) {
     .progress-bar-animated {
-        -webkit-animation: none;
         animation: none
     }
 }
@@ -6114,7 +6082,6 @@ fieldset:disabled .btn {
     pointer-events: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none
 }
 
@@ -6145,7 +6112,6 @@ fieldset:disabled .btn {
 .toast-container {
     max-width: 100%;
     pointer-events: none;
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content
 }
@@ -6992,12 +6958,6 @@ fieldset:disabled .btn {
     color: #000
 }
 
-@-webkit-keyframes spinner-border {
-    to {
-        transform: rotate(1turn)
-    }
-}
-
 @keyframes spinner-border {
     to {
         transform: rotate(1turn)
@@ -7005,7 +6965,6 @@ fieldset:disabled .btn {
 }
 
 .spinner-border {
-    -webkit-animation: spinner-border .75s linear infinite;
     animation: spinner-border .75s linear infinite;
     border: .25em solid;
     border-radius: 50%;
@@ -7022,17 +6981,6 @@ fieldset:disabled .btn {
     width: 1rem
 }
 
-@-webkit-keyframes spinner-grow {
-    0% {
-        transform: scale(0)
-    }
-
-    50% {
-        opacity: 1;
-        transform: none
-    }
-}
-
 @keyframes spinner-grow {
     0% {
         transform: scale(0)
@@ -7045,7 +6993,6 @@ fieldset:disabled .btn {
 }
 
 .spinner-grow {
-    -webkit-animation: spinner-grow .75s linear infinite;
     animation: spinner-grow .75s linear infinite;
     background-color: currentColor;
     border-radius: 50%;
@@ -7065,7 +7012,6 @@ fieldset:disabled .btn {
 
     .spinner-border,
     .spinner-grow {
-        -webkit-animation-duration: 1.5s;
         animation-duration: 1.5s
     }
 }
@@ -7199,14 +7145,7 @@ fieldset:disabled .btn {
 }
 
 .placeholder-glow .placeholder {
-    -webkit-animation: placeholder-glow 2s ease-in-out infinite;
     animation: placeholder-glow 2s ease-in-out infinite
-}
-
-@-webkit-keyframes placeholder-glow {
-    50% {
-        opacity: .2
-    }
 }
 
 @keyframes placeholder-glow {
@@ -7216,19 +7155,11 @@ fieldset:disabled .btn {
 }
 
 .placeholder-wave {
-    -webkit-animation: placeholder-wave 2s linear infinite;
     animation: placeholder-wave 2s linear infinite;
     -webkit-mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, .8) 75%, #000 95%);
     mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, .8) 75%, #000 95%);
     -webkit-mask-size: 200% 100%;
     mask-size: 200% 100%
-}
-
-@-webkit-keyframes placeholder-wave {
-    to {
-        -webkit-mask-position: -200% 0;
-        mask-position: -200% 0
-    }
 }
 
 @keyframes placeholder-wave {
@@ -7368,7 +7299,6 @@ fieldset:disabled .btn {
 }
 
 .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020
@@ -7376,7 +7306,6 @@ fieldset:disabled .btn {
 
 @media (min-width:576px) {
     .sticky-sm-top {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 1020
@@ -7385,7 +7314,6 @@ fieldset:disabled .btn {
 
 @media (min-width:768px) {
     .sticky-md-top {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 1020
@@ -7394,7 +7322,6 @@ fieldset:disabled .btn {
 
 @media (min-width:992px) {
     .sticky-lg-top {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 1020
@@ -7403,7 +7330,6 @@ fieldset:disabled .btn {
 
 @media (min-width:1200px) {
     .sticky-xl-top {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 1020
@@ -7412,7 +7338,6 @@ fieldset:disabled .btn {
 
 @media (min-width:1400px) {
     .sticky-xxl-top {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 1020
@@ -7618,7 +7543,6 @@ fieldset:disabled .btn {
 }
 
 .position-sticky {
-    position: -webkit-sticky !important;
     position: sticky !important
 }
 
@@ -8733,14 +8657,12 @@ fieldset:disabled .btn {
 .user-select-auto {
     -webkit-user-select: auto !important;
     -moz-user-select: auto !important;
-    -ms-user-select: auto !important;
     user-select: auto !important
 }
 
 .user-select-none {
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
-    -ms-user-select: none !important;
     user-select: none !important
 }
 
