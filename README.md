@@ -19,6 +19,8 @@
 * Node.js & npm
 * SQLite for local
 
+finished project: [hexlet-components/php-laravel-blog](https://github.com/hexlet-components/php-laravel-blog)
+
 ---
 
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://hexlet.io?utm_source=github&utm_medium=link&utm_campaign=php-laravel-blog)
