@@ -12,3 +12,6 @@ start-frontend:
 
 watch:
 	npm run watch
+
+clear:
+	php artisan view:clear
