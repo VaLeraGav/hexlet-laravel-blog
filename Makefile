@@ -18,3 +18,7 @@ clear:
 
 tinker:
 	php artisan tinker
+
+#важно! после добавление миграции выполнить эту функцию
+migrate:
+	php artisan migrate

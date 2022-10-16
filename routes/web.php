@@ -24,3 +24,8 @@ Route::get('/about', function () {
 Route::get('/articles', function () {
     return view('articles');
 });
+
+Route::get('articles',function () {
+    $articles = App\Models\Article::all();
+    return view('articles', ['articles' => $articles]);
+});
