@@ -23,7 +23,8 @@ Route::get('/', function () {
 //    return view('about');
 //});
 
-Route::get('about', [PageController::class, 'about']);
+Route::get('about', [PageController::class, 'about'])
+    ->name('about');
 
 //Route::get('/articles', function () {
 //    return view('articles');

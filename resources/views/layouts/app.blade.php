@@ -10,17 +10,31 @@
 </head>
 <body>
 
-<div class="container mt-4">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/articles">Articles</a>
-    <!-- BEGIN (write your solution here) -->
-    <h1>@yield('header')</h1>
-    <div class="container">
-        @yield('content')
-    </div>
-    <!-- END -->
+<div class="navbar-dark bg-dark">
+    <header class="flex-shrink-0 container">
+        <nav class="navbar navbar-expand-md ">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ ('/') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ ('articles') }}">Articles</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
 </div>
+
+<div class="container">
+    <h1 class="mt-3 ">@yield('header')</h1>
+    @yield('content')
+</div>
+
+
 </body>
 </html>
 
