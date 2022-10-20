@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
-    {{--    <link href="css/app.css" rel="stylesheet">--}}
+{{--        <link href="css/app.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
@@ -15,13 +15,13 @@
         <nav class="navbar navbar-expand-md ">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ ('/') }}">Home</a>
+                    <a class="nav-link" href="{{ route('/') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/about">About</a>
+                    <a class="nav-link " href="{{ route('about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ ('articles') }}">Articles</a>
+                    <a class="nav-link " href="{{ route('articles.index') }}">Articles</a>
                 </li>
             </ul>
 
