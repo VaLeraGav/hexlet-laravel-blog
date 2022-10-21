@@ -67,7 +67,7 @@ class ArticleController extends Controller
     /**
      * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $this->validate($request, [
             'name' => 'required|max:100|unique:articles',
@@ -78,6 +78,16 @@ class ArticleController extends Controller
         $category->fill($request->all());
         $category->save();
 
+        return redirect()
+            ->route('articles.index');
+    }
+
+    public function destroy($id): \Illuminate\Http\RedirectResponse
+    {
+        $article = Article::findOrFail($id);
+        if ($article) {
+            $article->delete();
+        }
         return redirect()
             ->route('articles.index');
     }

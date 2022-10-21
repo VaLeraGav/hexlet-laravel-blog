@@ -19,26 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
-//Route::get('/about', function () {
-//    return view('about');
-//});
-
 Route::get('about', [PageController::class, 'about'])
     ->name('about');
 
-//Route::get('/articles', function () {
-//    return view('articles');
-//});
-
-//Route::get('articles',function () {
-//    $articles = App\Models\Article::all();
-//    return view('articles', ['articles' => $articles]);
-//});
+Route::get('articles', [ArticleController::class, 'index'])
+    ->name('articles.index');
 
 // создание статьи
 // всегда нужно ставить перед articles/{id}
 Route::get('articles/create', [ArticleController::class, 'create'])
     ->name('articles.create');
+
+
 
 Route::post('articles', [ArticleController::class, 'store'])
     ->name('articles.store');
@@ -50,9 +42,14 @@ Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])
 Route::patch('articles/{id}', [ArticleController::class, 'update'])
     ->name('articles.update');
 
-// удаление статьи
-Route::get('articles', [ArticleController::class, 'index'])
-    ->name('articles.index');
 
+// удаление статьи
+Route::delete('articles/{id}', [ArticleController::class, 'destroy'])
+    ->name('articles.destroy');
+
+// вывод определенной статьи
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');
+
+
+

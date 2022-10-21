@@ -7,6 +7,11 @@
     {{--        <link href="css/app.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
+
+    {{-- php artisan cache:clear --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-param" content="_token"/>
+
 </head>
 <body>
 
@@ -36,7 +41,6 @@
     <h1 class="mt-3 ">@yield('header')</h1>
     @yield('content')
 </div>
-
 
 </body>
 </html>
