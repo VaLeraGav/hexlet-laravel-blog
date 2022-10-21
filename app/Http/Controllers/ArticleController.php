@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use  App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 
 class ArticleController extends Controller
@@ -23,18 +24,41 @@ class ArticleController extends Controller
         if ($userQuery) { // Если пользовательский запрос не пустой, то формируем WHERE ILIKE запрос к БД
             $query->where('name', 'like', "%{$userQuery}%");
         }
-        $articles = $query->paginate();
+        $articles = $query->orderBy('id', 'desc')->paginate();
 
         return view('article.index', [
             'articles' => $articles,
             'query' => $userQuery,
         ]);
-
     }
 
     public function show($id)
     {
         $article = Article::findOrFail($id);
         return view('article.show', compact('article'));
+    }
+
+    public function create()
+    {
+        $category = new Article();
+        return view('article.create', compact('category'));
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:100',
+            'body' => 'required|min:200',
+        ]);
+
+        $category = new Article();
+        $category->fill($request->all());
+        $category->save();
+
+        return redirect()
+            ->route('articles.index');
     }
 }
