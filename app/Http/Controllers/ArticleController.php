@@ -38,10 +38,30 @@ class ArticleController extends Controller
         return view('article.show', compact('article'));
     }
 
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $data = $this->validate($request, [
+            'name' => 'required|max:100|unique:articles,name,'. $article->id,
+            'body' => 'required|min:200',
+        ]);
+
+        $article->fill($data);
+        $article->save();
+        return redirect()
+            ->route('articles.index');
+    }
+
     public function create()
     {
-        $category = new Article();
-        return view('article.create', compact('category'));
+        $article = new Article();
+        return view('article.create', compact('article'));
     }
 
     /**
@@ -50,7 +70,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:100',
+            'name' => 'required|max:100|unique:articles',
             'body' => 'required|min:200',
         ]);
 
