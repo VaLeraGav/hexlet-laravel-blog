@@ -11,30 +11,47 @@
     {{-- php artisan cache:clear --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="csrf-param" content="_token"/>
-
+    <style>
+        body {
+            background: #eeee;
+        }
+        .container {
+            width: 60%;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <div class="container navbar-nav">
 
-<div class="navbar-dark bg-dark">
-    <header class="flex-shrink-0 container">
-        <nav class="navbar navbar-expand-md ">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('/') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('about') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('articles.index') }}">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('articles.create') }}">Creat</a>
-                </li>
-            </ul>
+            <a class="navbar-brand" href="">LaravelBlog</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('/') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class=" nav-link" href="{{ route('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('articles.create') }}">Creat</a>
+            </li>
 
-        </nav>
-    </header>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">log</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
 
 <div class="container">
