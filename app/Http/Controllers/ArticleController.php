@@ -18,7 +18,9 @@ class ArticleController extends Controller
 
     public function index(Request $request)
     {
-        $query = Article::query(); // Получаю икземпляр QueryBuilder для того, чтобы можно было в дальнейшем в зависимости от условий использовать конструкцию ->
+        // Получаю икземпляр QueryBuilder для того, чтобы можно было в дальнейшем в
+        // зависимости от условий использовать конструкцию ->
+        $query = Article::query();
         $userQuery = $request->input('q'); // Получаю строку с запросом от пользователя
 
         if ($userQuery) { // Если пользовательский запрос не пустой, то формируем WHERE ILIKE запрос к БД
@@ -90,5 +92,14 @@ class ArticleController extends Controller
         }
         return redirect()
             ->route('articles.index');
+    }
+
+    public function login()
+    {
+        return view('article.login');
+    }
+    public function register()
+    {
+        return view('article.register');
     }
 }

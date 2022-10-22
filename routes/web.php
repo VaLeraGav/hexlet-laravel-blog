@@ -31,7 +31,6 @@ Route::get('articles/create', [ArticleController::class, 'create'])
     ->name('articles.create');
 
 
-
 Route::post('articles', [ArticleController::class, 'store'])
     ->name('articles.store');
 
@@ -51,5 +50,12 @@ Route::delete('articles/{id}', [ArticleController::class, 'destroy'])
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');
 
+// заглушка на время
+Route::get('/register', [ArticleController::class, 'register'])
+    ->name('register');
+
+// заглушка пока не разобрался
+Route::get('/login', [ArticleController::class, 'login'])
+    ->name('login');
 
 

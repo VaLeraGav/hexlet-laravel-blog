@@ -43,7 +43,7 @@
             <div class="navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">log</a>
+                        <a class="nav-link" href="/login">login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/register">registration</a>

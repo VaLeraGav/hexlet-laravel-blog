@@ -17,7 +17,9 @@
             <h3>
                 <a class="nav-link link-secondary " href="{{ route('articles.show', $article) }}">{{$article->name}}</a>
             </h3>
-            <div>{{Str::limit($article->body, 150)}}</div>
+            <div><?= Str::limit($article->updated_at, 16, '') ?></div>
+            <div><?= Str::limit($article->body, 150) ?></div>
+
             <a href="{{ route('articles.show', $article) }}">ReadMore</a>
             <a href="{{ route('articles.edit', $article) }}">edit</a>
             {{--<a href="{{ route('articles.destroy', $article) }}" data-method="delete"  rel="nofollow">Remove</a>--}}
