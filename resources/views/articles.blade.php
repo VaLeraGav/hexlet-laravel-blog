@@ -1,4 +1,3 @@
-<!-- BEGIN (write your solution here) -->
 @extends('layouts.app')
 
 @section('header', 'Статьи')
@@ -10,4 +9,3 @@
         <div>{{ $article->body }}</div>
     @endforeach
 @endsection
-<!-- END -->

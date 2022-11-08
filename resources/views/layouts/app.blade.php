@@ -15,8 +15,9 @@
         body {
             background: #eeee;
         }
+
         .container {
-            width: 60%;
+            width: 1000px;
             padding: 0;
         }
     </style>
@@ -42,12 +43,21 @@
 
             <div class="navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">registration</a>
-                    </li>
+
+{{--                    @auth--}}
+                        <li class="nav-item">
+                            <form method="POST" action="/logout">
+                                <button>logout</button>
+                            </form>
+                        </li>
+{{--                    @else--}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">registration</a>
+                        </li>
+{{--                    @endauth--}}
                 </ul>
             </div>
         </div>

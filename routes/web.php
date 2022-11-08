@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,40 +23,58 @@ Route::get('/', function () {
 Route::get('about', [PageController::class, 'about'])
     ->name('about');
 
-Route::get('articles', [ArticleController::class, 'index'])
-    ->name('articles.index');
 
-// создание статьи
-// всегда нужно ставить перед articles/{id}
-Route::get('articles/create', [ArticleController::class, 'create'])
-    ->name('articles.create');
+Route::name('articles.')->group(function () {
+    Route::get('articles', [ArticleController::class, 'index'])
+        ->name('index');
 
+    // создание статьи
+    // всегда нужно ставить перед articles/{id}
+    Route::get('articles/create', [ArticleController::class, 'create'])
+        ->name('create');
 
-Route::post('articles', [ArticleController::class, 'store'])
-    ->name('articles.store');
+    Route::post('articles', [ArticleController::class, 'store'])
+        ->name('store');
 
-// изменение стати
-Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])
-    ->name('articles.edit');
+    // изменение стати
+    Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])
+        ->name('edit');
 
-Route::patch('articles/{id}', [ArticleController::class, 'update'])
-    ->name('articles.update');
+    Route::patch('articles/{id}', [ArticleController::class, 'update'])
+        ->name('update');
 
+    // удаление статьи
+    Route::delete('articles/{id}', [ArticleController::class, 'destroy'])
+        ->name('destroy');
 
-// удаление статьи
-Route::delete('articles/{id}', [ArticleController::class, 'destroy'])
-    ->name('articles.destroy');
+    // вывод определенной статьи
+    Route::get('articles/{id}', [ArticleController::class, 'show'])
+        ->name('show');
+});
 
-// вывод определенной статьи
-Route::get('articles/{id}', [ArticleController::class, 'show'])
-    ->name('articles.show');
+Route::name('users.')->group(function(){
 
-// заглушка на время
-Route::get('/register', [ArticleController::class, 'register'])
-    ->name('register');
-
-// заглушка пока не разобрался
-Route::get('/login', [ArticleController::class, 'login'])
-    ->name('login');
+});
 
 
+//// заглушка на время
+//Route::get('/register', [ArticleController::class, 'register'])
+//    ->name('register');
+//
+//// заглушка пока не разобрался
+//Route::get('/login', [ArticleController::class, 'login'])
+//    ->name('login');
+
+
+Route::middleware('guest')->group(function () {
+
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+});

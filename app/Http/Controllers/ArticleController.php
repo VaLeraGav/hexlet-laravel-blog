@@ -94,12 +94,12 @@ class ArticleController extends Controller
             ->route('articles.index');
     }
 
-    public function login()
-    {
-        return view('article.login');
-    }
-    public function register()
-    {
-        return view('article.register');
-    }
+//    public function login()
+//    {
+//        return view('auth.login');
+//    }
+//    public function register()
+//    {
+//        return view('auth.register');
+//    }
 }

@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--    {{ Form::open(['route' => 'articles.index', 'method' => 'GET']) }}--}}
-    {{--        {{Form::text('q', $query)}}--}}
-    {{--        {{Form::submit('Search')}}--}}
+
+    {{--    {{ Form::open(['route' => 'articles.index', 'method' => 'GET', 'class' => 'd-flex'])}}--}}
+    {{--    {{Form::text('q', $query, ['class' => 'form-control me-2'])}}--}}
+    {{--    {{Form::button('Search', ['type'=>'submit', 'class' => 'btn btn-outline-success'])}}--}}
     {{--    {{Form::close()}}--}}
-    {{ Form::open(['route' => 'articles.index', 'method' => 'GET', 'class' => 'd-flex'])}}
-    {{Form::text('q', $query, ['class' => 'form-control me-2'])}}
-    {{Form::button('Search', ['type'=>'submit', 'class' => 'btn btn-outline-success'])}}
-    {{Form::close()}}
+
+
+    <form method="GET" action="{{ route('articles.index') }}" accept-charset="UTF-8" class="d-flex">
+        <input class="form-control me-2" name="q" type="text">
+        <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
 
     <hr>
 
@@ -27,4 +30,5 @@
                rel="nofollow">remove</a>
         </div>
     @endforeach
+
 @endsection
